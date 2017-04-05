@@ -93,8 +93,9 @@ class SearchComponent extends Component
                 }
             }
             else {
-                $message = sprintf("%s should be instance of `%s` and `%s`", $ar, SearchInterface::class, ActiveRecordInterface::class);
-                throw new InvalidConfigException($message);
+                throw new InvalidConfigException(
+                    "$ar should be instance of `vintage\\search\\interfaces\\SearchInterface` and `yii\\db\\ActiveRecordInterface`"
+                );
             }
         }
 

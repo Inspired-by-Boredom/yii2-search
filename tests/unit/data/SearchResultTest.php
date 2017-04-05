@@ -25,7 +25,7 @@ class SearchResultTest extends TestCase
     public function testInstanceOf()
     {
         $this->assertInstanceOf(
-            Configurable::class,
+            'yii\base\Configurable',
             new SearchResult(),
             'Class should be instance of `yii\base\Configurable`'
         );
