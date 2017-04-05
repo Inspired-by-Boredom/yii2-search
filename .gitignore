@@ -1,0 +1,12 @@
+# Codeception
+codecept.phar
+
+# composer vendor dir
+/vendor
+
+# composer files
+composer.phar
+composer.lock
+
+# phpstorm files
+.idea

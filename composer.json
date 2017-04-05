@@ -1,0 +1,37 @@
+{
+  "name": "vintage/yii2-search",
+  "description": "Search in Active Record models for Yii2",
+  "keywords": ["yii2", "component", "search", "active record"],
+  "type": "yii2-extension",
+  "license": "BSD-3-Clause",
+  "support": {
+    "source": "https://github.com/Vintage-web-production/yii2-search",
+    "issues": "https://github.com/Vintage-web-production/yii2-search/issues"
+  },
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://asset-packagist.org"
+    }
+  ],
+  "require": {
+    "yiisoft/yii2": "^2.0.0"
+  },
+  "require-dev": {
+    "codeception/codeception": "*",
+    "codeception/verify": "*",
+    "codeception/specify": "*"
+  },
+  "authors": [
+    {
+      "name": "Vladimir Kuprienko",
+      "email": "vldmr.kuprienko@gmail.com",
+      "role": "developer"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "vintage\\search\\": "src"
+    }
+  }
+}
