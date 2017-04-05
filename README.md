@@ -2,6 +2,8 @@ Search in Active Record models for Yii2
 =======================================
 This is a component for searching in the Active Record models
 
+[![Build Status](https://travis-ci.org/Vintage-web-production/yii2-search.svg?branch=master)](https://travis-ci.org/Vintage-web-production/yii2-search)
+
 Installation
 ------------
 #### Install package
