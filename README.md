@@ -3,6 +3,10 @@ Search in Active Record models for Yii2
 This is a component for searching in the Active Record models
 
 [![Build Status](https://travis-ci.org/Vintage-web-production/yii2-search.svg?branch=master)](https://travis-ci.org/Vintage-web-production/yii2-search)
+[![Total Downloads](https://poser.pugx.org/vintage/yii2-search/downloads)](https://packagist.org/packages/vintage/yii2-search)
+[![Latest Stable Version](https://poser.pugx.org/vintage/yii2-search/v/stable)](https://packagist.org/packages/vintage/yii2-search)
+[![Latest Unstable Version](https://poser.pugx.org/vintage/yii2-search/v/unstable)](https://packagist.org/packages/vintage/yii2-search)
+
 
 Installation
 ------------
