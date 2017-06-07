@@ -12,7 +12,6 @@ use yii\base\Component;
 use yii\base\Exception;
 use yii\base\InvalidConfigException;
 use yii\db\ActiveRecordInterface;
-
 use vintage\search\data\SearchResult;
 use vintage\search\interfaces\SearchInterface;
 
@@ -79,8 +78,7 @@ class SearchComponent extends Component
                 foreach($searchFields as $field) {
                     if($ar->hasAttribute($field)) {
                         $activeQuery = $activeQuery->orWhere(['like', $field, $query]);
-                    }
-                    else {
+                    } else {
                         $message = sprintf("Field `%s` not found in `%s` model", $field, $ar);
                         throw new Exception($message);
                     }
@@ -91,8 +89,7 @@ class SearchComponent extends Component
                     $this->_currentModel = $ar;
                     $this->addToResult($modelObjects);
                 }
-            }
-            else {
+            } else {
                 throw new InvalidConfigException(
                     "$ar should be instance of `vintage\\search\\interfaces\\SearchInterface` and `yii\\db\\ActiveRecordInterface`"
                 );

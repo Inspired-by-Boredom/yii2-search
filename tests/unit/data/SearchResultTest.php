@@ -5,12 +5,10 @@
  * @license BSD 3-Clause License
  */
 
-namespace tests\unit\data;
+namespace vintage\search\tests\unit\data;
 
-use yii\base\Configurable;
-
-use tests\models\Article;
-use tests\unit\TestCase;
+use vintage\search\tests\models\Article;
+use vintage\search\tests\unit\TestCase;
 
 use vintage\search\data\SearchResult;
 

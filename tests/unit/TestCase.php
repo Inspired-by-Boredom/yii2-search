@@ -5,9 +5,7 @@
  * @license BSD 3-Clause License
  */
 
-namespace tests\unit;
-
-use yii\test\FixtureTrait;
+namespace vintage\search\tests\unit;
 
 /**
  * Base test case for unit tests
@@ -17,8 +15,6 @@ use yii\test\FixtureTrait;
  */
 class TestCase extends \Codeception\Test\Unit
 {
-    use FixtureTrait;
-
     /**
      * @var \UnitTester
      */

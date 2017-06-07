@@ -5,12 +5,12 @@
  * @license BSD 3-Clause License
  */
 
-namespace tests\unit\components;
+namespace vintage\search\tests\unit\components;
 
 use Yii;
 
-use tests\unit\DbTestCase;
-use tests\fixtures\ArticleFixture;
+use vintage\search\tests\unit\DbTestCase;
+use vintage\search\tests\fixtures\ArticleFixture;
 
 use vintage\search\data\SearchResult;
 

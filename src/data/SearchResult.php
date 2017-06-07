@@ -8,9 +8,8 @@
 namespace vintage\search\data;
 
 use Yii;
-use yii\base\Configurable;
+use yii\base\Object;
 use yii\db\BaseActiveRecord;
-
 use vintage\search\interfaces\SearchInterface;
 
 /**
@@ -23,7 +22,7 @@ use vintage\search\interfaces\SearchInterface;
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
  */
-class SearchResult implements Configurable
+class SearchResult implements Object
 {
     /**
      * @var string
@@ -46,16 +45,6 @@ class SearchResult implements Configurable
      */
     public $modelName;
 
-
-    /**
-     * SearchResult constructor.
-     *
-     * @param array $options
-     */
-    public function __construct($options = [])
-    {
-        Yii::configure($this, $options);
-    }
 
     /**
      * Building the result from Active Record object

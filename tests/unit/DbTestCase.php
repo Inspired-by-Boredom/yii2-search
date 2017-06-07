@@ -5,7 +5,9 @@
  * @license BSD 3-Clause License
  */
 
-namespace tests\unit;
+namespace vintage\search\tests\unit;
+
+use yii\test\FixtureTrait;
 
 /**
  * Base test case for unit tests with database
@@ -15,6 +17,9 @@ namespace tests\unit;
  */
 class DbTestCase extends TestCase
 {
+    use FixtureTrait;
+
+
     public function _before()
     {
         $this->loadFixtures();

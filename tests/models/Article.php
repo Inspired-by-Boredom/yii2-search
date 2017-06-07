@@ -5,7 +5,7 @@
  * @license BSD 3-Clause License
  */
 
-namespace tests\models;
+namespace vintage\search\tests\models;
 
 use yii\db\ActiveRecord;
 

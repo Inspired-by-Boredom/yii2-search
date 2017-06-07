@@ -31,7 +31,8 @@
   ],
   "autoload": {
     "psr-4": {
-      "vintage\\search\\": "src"
+      "vintage\\search\\": "src",
+      "vintage\\search\\tests\\": "tests"
     }
   }
 }

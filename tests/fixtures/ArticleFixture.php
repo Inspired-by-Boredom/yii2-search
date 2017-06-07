@@ -5,8 +5,9 @@
  * @license BSD 3-Clause License
  */
 
-namespace tests\fixtures;
+namespace vintage\search\tests\fixtures;
 
+use vintage\search\tests\models\Article;
 use yii\test\ActiveFixture;
 
 /**
@@ -20,7 +21,7 @@ class ArticleFixture extends ActiveFixture
     /**
      * @inheritdoc
      */
-    public $modelClass = 'tests\models\Article';
+    public $modelClass = Article::class;
     /**
      * @inheritdoc
      */
