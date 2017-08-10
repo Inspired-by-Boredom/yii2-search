@@ -14,6 +14,7 @@ use yii\base\InvalidConfigException;
 use yii\db\ActiveRecordInterface;
 use vintage\search\data\SearchResult;
 use vintage\search\interfaces\SearchInterface;
+use yii\helpers\ArrayHelper;
 
 /**
  * Component for search in Active Record models
@@ -73,18 +74,18 @@ class SearchComponent extends Component
 
             if($ar instanceof SearchInterface && $ar instanceof ActiveRecordInterface) {
                 $searchFields = $ar->getSearchFields();
-                $activeQuery = $ar::find();
+                $dbQuery = $ar::find();
 
                 foreach($searchFields as $field) {
                     if($ar->hasAttribute($field)) {
-                        $activeQuery = $activeQuery->orWhere(['like', $field, $query]);
+                        $dbQuery->orWhere(['like', $field, $query]);
                     } else {
                         $message = sprintf("Field `%s` not found in `%s` model", $field, $ar);
                         throw new Exception($message);
                     }
                 }
 
-                $modelObjects = $activeQuery->all();
+                $modelObjects = $dbQuery->all();
                 if($modelObjects !== null) {
                     $this->_currentModel = $ar;
                     $this->addToResult($modelObjects);
@@ -121,6 +122,7 @@ class SearchComponent extends Component
      * @param \yii\db\ActiveRecord[] $modelObjects
      */
     protected function addToResult($modelObjects) {
-        $this->_result = SearchResult::buildMultiply($modelObjects);
+        $tmp = SearchResult::buildMultiply($modelObjects);
+        $this->_result = ArrayHelper::merge($tmp, $this->_result);
     }
 }

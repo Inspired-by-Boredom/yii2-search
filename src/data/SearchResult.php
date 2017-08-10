@@ -7,7 +7,6 @@
 
 namespace vintage\search\data;
 
-use Yii;
 use yii\base\Object;
 use yii\db\BaseActiveRecord;
 use vintage\search\interfaces\SearchInterface;
@@ -22,7 +21,7 @@ use vintage\search\interfaces\SearchInterface;
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
  */
-class SearchResult implements Object
+class SearchResult extends Object
 {
     /**
      * @var string
@@ -91,7 +90,7 @@ class SearchResult implements Object
      * @param SearchResult[] $searchResults
      * @return SearchResult[]
      */
-    public static function sortByModel($searchResults)
+    public static function sortByModel(array $searchResults)
     {
         $sorted = [];
         foreach($searchResults as $obj) {
