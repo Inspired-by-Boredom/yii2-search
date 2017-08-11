@@ -17,9 +17,7 @@ use vintage\search\interfaces\SearchInterface;
 use yii\helpers\ArrayHelper;
 
 /**
- * Component for search in Active Record models
- *
- * @property array $models
+ * Component for search in Active Record models.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
@@ -27,43 +25,44 @@ use yii\helpers\ArrayHelper;
 class SearchComponent extends Component
 {
     /**
-     * @var array
-     * Example:
+     * @var array Array with configuration of models for search.
+     * @example
      * ```php
      * 'models' => [
      *      'articles' => [
-     *          'class' => Article::className(),
-     *          'label' => 'Articles'
+     *          'class' => Article::class,
+     *          'label' => 'Articles',
      *      ],
      *      'products' => [
-     *          'class' => Product::className(),
-     *          'label' => 'Shop products'
-     *      ]
+     *          'class' => Product::class,
+     *          'label' => 'Shop products',
+     *      ],
+     *      // ...
      * ]
      * ```
      */
     public $models = [];
 
     /**
-     * @var string Current model class
+     * @var string Current model class.
      */
     protected $_currentModel;
     /**
-     * @var SearchResult[] Array of the search results
+     * @var SearchResult[] Array of the search result.
      */
     protected $_result = [];
 
 
     /**
-     * Method for searching
+     * Method for searching.
      *
-     * Example
+     * @example
      * ```php
      * $result = Yii::$app->get('searcher')->search('query for searching');
      * ```
      *
-     * @param string $query Keywords for search
-     * @return SearchResult[] array of the result objects
+     * @param string $query Keywords for search.
+     * @return SearchResult[] Array of the result objects.
      * @throws Exception
      * @throws InvalidConfigException
      */
@@ -101,7 +100,7 @@ class SearchComponent extends Component
     }
 
     /**
-     * Getting model label by model name
+     * Getting model label by model name.
      *
      * @param string $modelName
      * @return null|string
@@ -117,7 +116,7 @@ class SearchComponent extends Component
     }
 
     /**
-     * Method for adding search result to the array of the results
+     * Method for adding iteration result to final result.
      *
      * @param \yii\db\ActiveRecord[] $modelObjects
      */

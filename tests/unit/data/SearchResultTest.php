@@ -12,7 +12,7 @@ use vintage\search\tests\unit\TestCase;
 use vintage\search\data\SearchResult;
 
 /**
- * Test case for SearchResult class
+ * Test case for SearchResult class.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0

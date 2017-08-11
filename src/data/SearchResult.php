@@ -12,7 +12,7 @@ use yii\db\BaseActiveRecord;
 use vintage\search\interfaces\SearchInterface;
 
 /**
- * Class for contain of search result
+ * Model for store of search result.
  *
  * @property string $title
  * @property string $description
@@ -46,7 +46,7 @@ class SearchResult extends Object
 
 
     /**
-     * Building the result from Active Record object
+     * Building the result from Active Record object.
      *
      * @param BaseActiveRecord|SearchInterface $modelObject
      * @return SearchResult
@@ -58,12 +58,12 @@ class SearchResult extends Object
             'modelName'     => $modelObject::className(),
             'title'         => $modelObject->getSearchTitle(),
             'description'   => $modelObject->getSearchDescription(),
-            'url'           => $modelObject->getSearchUrl()
+            'url'           => $modelObject->getSearchUrl(),
         ]);
     }
 
     /**
-     * Multiply building of result from Active Record objects
+     * Multiply building of result from Active Record objects.
      *
      * @param BaseActiveRecord[]|SearchInterface[] $modelObjects
      * @return SearchResult[]
@@ -85,7 +85,7 @@ class SearchResult extends Object
     }
 
     /**
-     * Method for sorting results of search by model name
+     * Method for sorting results of search by model name.
      *
      * @param SearchResult[] $searchResults
      * @return SearchResult[]

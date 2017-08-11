@@ -8,7 +8,7 @@
 namespace vintage\search\tests\unit;
 
 /**
- * Base test case for unit tests
+ * Base test case for unit tests.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0

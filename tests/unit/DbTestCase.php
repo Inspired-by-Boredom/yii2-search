@@ -10,7 +10,7 @@ namespace vintage\search\tests\unit;
 use yii\test\FixtureTrait;
 
 /**
- * Base test case for unit tests with database
+ * Base test case for unit tests with fixtures support.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0

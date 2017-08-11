@@ -13,7 +13,7 @@ use vintage\search\tests\fixtures\ArticleFixture;
 use vintage\search\data\SearchResult;
 
 /**
- * Test case for Search component
+ * Test case for Search component.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
@@ -26,6 +26,9 @@ class SearchComponentTest extends DbTestCase
     private $component = null;
 
 
+    /**
+     * @inheritdoc
+     */
     public function fixtures()
     {
         return [
