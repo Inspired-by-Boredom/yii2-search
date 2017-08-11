@@ -8,6 +8,13 @@
     "source": "https://github.com/Vintage-web-production/yii2-search",
     "issues": "https://github.com/Vintage-web-production/yii2-search/issues"
   },
+  "authors": [
+    {
+      "name": "Vladimir Kuprienko",
+      "email": "vldmr.kuprienko@gmail.com",
+      "role": "developer"
+    }
+  ],
   "repositories": [
     {
       "type": "composer",
@@ -18,17 +25,10 @@
     "yiisoft/yii2": "^2.0.0"
   },
   "require-dev": {
-    "codeception/codeception": "*",
+    "codeception/codeception": "~2.3",
     "codeception/verify": "*",
     "codeception/specify": "*"
   },
-  "authors": [
-    {
-      "name": "Vladimir Kuprienko",
-      "email": "vldmr.kuprienko@gmail.com",
-      "role": "developer"
-    }
-  ],
   "autoload": {
     "psr-4": {
       "vintage\\search\\": "src",

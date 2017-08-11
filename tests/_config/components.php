@@ -6,7 +6,7 @@ return [
         'class' => \vintage\search\SearchComponent::className(),
         'models' => [
             'article' => [
-                'class' => \tests\models\Article::className(),
+                'class' => \vintage\search\tests\models\Article::className(),
                 'label' => 'Test label'
             ]
         ]

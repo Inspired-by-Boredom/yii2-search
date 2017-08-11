@@ -6,7 +6,6 @@ codecept.phar
 
 # composer files
 composer.phar
-composer.lock
 
 # phpstorm files
 .idea

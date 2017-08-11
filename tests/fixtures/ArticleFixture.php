@@ -7,7 +7,6 @@
 
 namespace vintage\search\tests\fixtures;
 
-use vintage\search\tests\models\Article;
 use yii\test\ActiveFixture;
 
 /**
@@ -21,7 +20,7 @@ class ArticleFixture extends ActiveFixture
     /**
      * @inheritdoc
      */
-    public $modelClass = Article::class;
+    public $modelClass = 'vintage\search\tests\models\Article';
     /**
      * @inheritdoc
      */

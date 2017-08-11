@@ -8,10 +8,8 @@
 namespace vintage\search\tests\unit\components;
 
 use Yii;
-
 use vintage\search\tests\unit\DbTestCase;
 use vintage\search\tests\fixtures\ArticleFixture;
-
 use vintage\search\data\SearchResult;
 
 /**
@@ -55,14 +53,14 @@ class SearchComponentTest extends DbTestCase
 
         $this->assertEquals($expected, $actual, 'Method must find string in database');
 
-        $this->assertEquals('tests\models\Article', $result[0]->modelName, 'Result should contain a model name');
+        $this->assertEquals('vintage\search\tests\models\Article', $result[0]->modelName, 'Result should contain a model name');
         $this->assertEquals(1, $result[0]->modelId, 'Result should containt a primary key of model');
     }
 
     public function testGetModelLabel()
     {
         $expected = 'Test label';
-        $actual = $this->component->getModelLabel('tests\models\Article');
+        $actual = $this->component->getModelLabel('vintage\search\tests\models\Article');
 
         $this->assertEquals($expected, $actual, 'Method must return model label');
     }

@@ -9,7 +9,6 @@ namespace vintage\search\tests\unit\data;
 
 use vintage\search\tests\models\Article;
 use vintage\search\tests\unit\TestCase;
-
 use vintage\search\data\SearchResult;
 
 /**
@@ -32,7 +31,7 @@ class SearchResultTest extends TestCase
     public function testBuild()
     {
         $expectedModelId = 1;
-        $expectedModelName = 'tests\models\Article';
+        $expectedModelName = 'vintage\search\tests\models\Article';
         $expectedTitle = 'Test title';
         $expectedDescription = 'Test description';
         $expectedUrl = '/articles/1';
