@@ -16,7 +16,7 @@ composer require vintage/yii2-search
 ```
 or add
 ```json
-"vintage/yii2-search": "dev-master"
+"vintage/yii2-search": "~1.0"
 ```
 to the require section of your composer.json.
 

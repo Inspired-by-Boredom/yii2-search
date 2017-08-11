@@ -1,4 +1,9 @@
-vintage/yii2-copy-text change log
----------------------------------
+Search Component Change Log
+---------------------------
 
-## [Development started] - 2017-04-05
+1.0.0 August 11, 2017
+---------------------
+* Initial release
+
+Development started April 05, 2017
+----------------------------------
