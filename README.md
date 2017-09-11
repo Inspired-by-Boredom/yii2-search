@@ -1,5 +1,11 @@
-Search in Active Record models for Yii2
-=======================================
+<p align="center">
+    <a href="https://github.com/Vintage-web-production" target="_blank">
+        <img src="https://avatars1.githubusercontent.com/u/25753250" height="100px">
+    </a>
+    <h1 align="center">Search in Active Record models for Yii2</h1>
+    <br>
+</p>
+
 This is component for searching in the Active Record models for Yii2 Framework.
 
 [![Build Status](https://travis-ci.org/Vintage-web-production/yii2-search.svg?branch=master)](https://travis-ci.org/Vintage-web-production/yii2-search)
