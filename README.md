@@ -10,8 +10,8 @@ This is component for searching in the Active Record models for Yii2 Framework.
 
 [![Build Status](https://travis-ci.org/Vintage-web-production/yii2-search.svg?branch=master)](https://travis-ci.org/Vintage-web-production/yii2-search)
 [![Total Downloads](https://poser.pugx.org/vintage/yii2-search/downloads)](https://packagist.org/packages/vintage/yii2-search)
-[![Latest Stable Version](https://poser.pugx.org/vintage/yii2-search/v/stable)](https://packagist.org/packages/vintage/yii2-search)
-[![Latest Unstable Version](https://poser.pugx.org/vintage/yii2-search/v/unstable)](https://packagist.org/packages/vintage/yii2-search)
+[![Latest Stable Version](https://poser.pugx.org/vintage/yii2-search/v/stable)](CHANGELOG.md)
+[![Latest Unstable Version](https://poser.pugx.org/vintage/yii2-search/v/unstable)](CHANGELOG.md)
 
 Installation
 ------------
@@ -106,7 +106,7 @@ this method returns array of `\vintage\search\data\SearchResult` objects.
 
 Licence
 -------
-[![License](https://poser.pugx.org/vintage/yii2-search/license)](https://packagist.org/packages/vintage/yii2-search)
+[![License](https://poser.pugx.org/vintage/yii2-search/license)](LICENSE)
 
 This project is released under the terms of the BSD-3-Clause [license](LICENSE).
 
