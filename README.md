@@ -16,16 +16,19 @@ This is component for searching in the Active Record models for Yii2 Framework.
 
 Installation
 ------------
+
 #### Install package
+
 Run command
+```bash
+$ composer require vintage/yii2-search
 ```
-composer require vintage/yii2-search
-```
+
 or add
 ```json
 "vintage/yii2-search": "~1.0"
 ```
-to the require section of your composer.json.
+to the require section of your `composer.json` file.
 
 Configuration
 -------------
@@ -104,6 +107,20 @@ Call method of search component with search query
 $result = Yii::$app->get('searcher')->search('some key words');
 ```
 this method returns array of `\vintage\search\data\SearchResult` objects.
+
+Tests
+-----
+You can run tests with composer command
+
+```bash
+$ composer test
+```
+
+or using following command
+
+```bash
+$ codecept build && codecept run
+```
 
 Licence
 -------
