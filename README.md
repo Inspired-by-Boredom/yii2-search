@@ -9,6 +9,7 @@
 This is component for searching in the Active Record models for Yii2 Framework.
 
 [![Build Status](https://travis-ci.org/Vintage-web-production/yii2-search.svg?branch=master)](https://travis-ci.org/Vintage-web-production/yii2-search)
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/Vintage-web-production/yii2-search/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/Vintage-web-production/yii2-search/?branch=master)
 [![Total Downloads](https://poser.pugx.org/vintage/yii2-search/downloads)](https://packagist.org/packages/vintage/yii2-search)
 [![Latest Stable Version](https://poser.pugx.org/vintage/yii2-search/v/stable)](CHANGELOG.md)
 [![Latest Unstable Version](https://poser.pugx.org/vintage/yii2-search/v/unstable)](CHANGELOG.md)
