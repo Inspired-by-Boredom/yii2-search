@@ -99,8 +99,8 @@ class SearchComponent extends Component
      */
     public function getModelLabel($modelName)
     {
-        foreach($this->models as $key => $model) {
-            if($model['class'] == $modelName) {
+        foreach ($this->models as $key => $model) {
+            if ($model['class'] == $modelName) {
                 return isset($model['label']) ? $model['label'] : Inflector::camel2words($key);
             }
         }
