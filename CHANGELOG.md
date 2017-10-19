@@ -1,8 +1,8 @@
 Search Component Change Log
 ---------------------------
 
-1.1.0 Under development
------------------------
+1.1.0 October 19, 2017
+----------------------
 * Enh: Refactored code: improve code readability
 * Enh: Creates interface for custom search query
 * Enh: Improved unit tests
