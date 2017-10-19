@@ -1,5 +1,7 @@
+# set language
 language: php
 
+# set language versions
 php:
   - 5.4
   - 5.5
@@ -24,9 +26,7 @@ install:
   - travis_retry composer self-update && composer --version
   - travis_retry composer update --prefer-dist --no-interaction
 
-before_script:
-  - vendor/bin/codecept build
-
+# run test commands
 script:
   - composer validate --no-check-lock
-  - vendor/bin/codecept run
+  - composer test
