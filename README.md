@@ -32,8 +32,10 @@ to the require section of your `composer.json` file.
 
 Usage
 -----
-* [Basic usage](docs/en/basic-usage.md)
-* [Advanced usage](docs/en/advanced-usage.md)
+* [(EN) Basic usage](docs/en/basic-usage.md)
+* [(RU) Базовое использование](docs/ru/basic-usage.md)
+* [(EN) Advanced usage](docs/en/advanced-usage.md)
+* [(RU) Продвинутое использование](docs/ru/advanced-usage.md)
 
 Tests
 -----
