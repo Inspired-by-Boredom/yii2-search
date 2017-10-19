@@ -60,4 +60,4 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\C
 }
 ```
 it interface provides `getQuery()` method. It takes `ActiveQuery`, current search field and user search query.
-You can build custom query and you should return `ActiveQuery` object.
+You can build custom query. Then you should return `ActiveQuery` object.
