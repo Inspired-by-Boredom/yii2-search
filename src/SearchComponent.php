@@ -7,15 +7,16 @@
 
 namespace vintage\search;
 
-use vintage\search\interfaces\CustomSearchInterface;
 use Yii;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 use yii\base\Model;
 use yii\db\BaseActiveRecord;
 use yii\helpers\ArrayHelper;
+use yii\helpers\Inflector;
 use vintage\search\data\SearchResult;
 use vintage\search\interfaces\SearchInterface;
+use vintage\search\interfaces\CustomSearchInterface;
 
 /**
  * Component for search in Active Record models.
@@ -65,19 +66,19 @@ class SearchComponent extends Component
      */
     public function search($query)
     {
-        foreach($this->models as $model) {
+        foreach ($this->models as $model) {
             /* @var BaseActiveRecord|SearchInterface $searchModel */
             $searchModel = Yii::createObject($model['class']);
 
-            if(!$this->isSearchModel($searchModel)) {
+            if (!$this->isSearchModel($searchModel)) {
                 throw new InvalidConfigException(
                     $model['class'] . 'should be instance of `\vintage\search\interfaces\SearchInterface` and `\yii\db\ActiveRecordInterface`'
                 );
             }
 
             $activeQuery = $searchModel::find();
-            foreach($searchModel->getSearchFields() as $field) {
-                if(!$searchModel->hasAttribute($field)) {
+            foreach ($searchModel->getSearchFields() as $field) {
+                if (!$searchModel->hasAttribute($field)) {
                     throw new \Exception(sprintf("Field `%s` not found in `%s` model", $field, $model['class']));
                 }
 
@@ -98,9 +99,9 @@ class SearchComponent extends Component
      */
     public function getModelLabel($modelName)
     {
-        foreach($this->models as $model) {
+        foreach($this->models as $key => $model) {
             if($model['class'] == $modelName) {
-                return $model['label'];
+                return isset($model['label']) ? $model['label'] : Inflector::camel2words($key);
             }
         }
         return null;

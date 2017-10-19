@@ -81,11 +81,19 @@ class SearchComponentTest extends DbTestCase
         $this->assertEquals(3, $result[0]->modelId, 'Result should contain a primary key of model');
     }
 
-    public function testGetModelLabel()
+    public function testGetModelLabelDefault()
     {
         $expected = 'Test label';
-        $actual = $this->component->getModelLabel('vintage\search\tests\models\Article');
+        $actual = $this->component->getModelLabel(Article::className());
 
         $this->assertEquals($expected, $actual, 'Method must return model label');
+    }
+
+    public function testGetModelLabelByInflector()
+    {
+        $expected = 'Home Static Page';
+        $actual = $this->component->getModelLabel(HomeStaticPage::className());
+
+        $this->assertEquals($expected, $actual, 'Method should get model key as label');
     }
 }

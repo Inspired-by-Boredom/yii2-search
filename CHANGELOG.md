@@ -6,6 +6,7 @@ Search Component Change Log
 * Enh: Refactored code: improve code readability
 * Enh: Creates interface for custom search query
 * Enh: Improved unit tests
+* Fix: Use Inflector if label for model not specified
 
 1.0.0 August 11, 2017
 ---------------------
