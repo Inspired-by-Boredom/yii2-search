@@ -44,13 +44,9 @@ class SearchComponent extends Component
     public $models = [];
 
     /**
-     * @var string Current model class.
-     */
-    protected $_currentModel;
-    /**
      * @var SearchResult[] Array of the search result.
      */
-    protected $_result = [];
+    protected $result = [];
 
 
     /**
@@ -66,7 +62,8 @@ class SearchComponent extends Component
      * @throws \Exception
      * @throws InvalidConfigException
      */
-    public function search($query) {
+    public function search($query)
+    {
         foreach($this->models as $model) {
             /* @var BaseActiveRecord|SearchInterface $searchModel */
             $searchModel = Yii::createObject($model['class']);
@@ -82,19 +79,14 @@ class SearchComponent extends Component
                     }
                 }
 
-                $foundModels = $activeQuery->all();
-                if($foundModels !== null) {
-                    $this->_currentModel = $searchModel;
-                    $this->addToResult($foundModels);
-                }
+                $this->addToResult($activeQuery->all());
             } else {
                 throw new InvalidConfigException(
                     $model['class'] . 'should be instance of `\vintage\search\interfaces\SearchInterface` and `\yii\db\ActiveRecordInterface`'
                 );
             }
         }
-
-        return $this->_result;
+        return $this->result;
     }
 
     /**
@@ -120,8 +112,10 @@ class SearchComponent extends Component
      */
     protected function addToResult($foundModels)
     {
-        $tmp = SearchResult::buildMultiply($foundModels);
-        $this->_result = ArrayHelper::merge($tmp, $this->_result);
+        if ($foundModels !== null) {
+            $tmp = SearchResult::buildMultiply($foundModels);
+            $this->result = ArrayHelper::merge($tmp, $this->result);
+        }
     }
 
     /**
