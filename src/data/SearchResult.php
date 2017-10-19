@@ -84,7 +84,7 @@ class SearchResult extends Object
     public static function sortByModel(array $searchResults)
     {
         $sorted = [];
-        foreach($searchResults as $obj) {
+        foreach ($searchResults as $obj) {
             $sorted[$obj->modelName][] = $obj;
         }
         return $sorted;

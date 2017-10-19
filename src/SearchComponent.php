@@ -10,8 +10,8 @@ namespace vintage\search;
 use Yii;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
-use yii\base\Model;;
-use yii\db\ActiveRecordInterface;
+use yii\base\Model;
+use yii\db\BaseActiveRecord;
 use yii\helpers\ArrayHelper;
 use vintage\search\data\SearchResult;
 use vintage\search\interfaces\SearchInterface;
@@ -68,7 +68,7 @@ class SearchComponent extends Component
      */
     public function search($query) {
         foreach($this->models as $model) {
-            /* @var ActiveRecordInterface|SearchInterface|Model $searchModel */
+            /* @var BaseActiveRecord|SearchInterface $searchModel */
             $searchModel = Yii::createObject($model['class']);
 
             if($this->isSearchModel($searchModel)) {
@@ -133,7 +133,7 @@ class SearchComponent extends Component
      */
     protected function isSearchModel(Model $model)
     {
-        return $model instanceof ActiveRecordInterface
+        return $model instanceof BaseActiveRecord
             && $model instanceof SearchInterface;
     }
 }
