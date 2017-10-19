@@ -7,6 +7,7 @@
 
 namespace vintage\search;
 
+use vintage\search\interfaces\CustomSearchInterface;
 use Yii;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
@@ -68,23 +69,23 @@ class SearchComponent extends Component
             /* @var BaseActiveRecord|SearchInterface $searchModel */
             $searchModel = Yii::createObject($model['class']);
 
-            if($this->isSearchModel($searchModel)) {
-                $activeQuery = $searchModel::find();
-
-                foreach($searchModel->getSearchFields() as $field) {
-                    if($searchModel->hasAttribute($field)) {
-                        $activeQuery->orWhere(['like', $field, $query]);
-                    } else {
-                        throw new \Exception(sprintf("Field `%s` not found in `%s` model", $field, $model['class']));
-                    }
-                }
-
-                $this->addToResult($activeQuery->all());
-            } else {
+            if(!$this->isSearchModel($searchModel)) {
                 throw new InvalidConfigException(
                     $model['class'] . 'should be instance of `\vintage\search\interfaces\SearchInterface` and `\yii\db\ActiveRecordInterface`'
                 );
             }
+
+            $activeQuery = $searchModel::find();
+            foreach($searchModel->getSearchFields() as $field) {
+                if(!$searchModel->hasAttribute($field)) {
+                    throw new \Exception(sprintf("Field `%s` not found in `%s` model", $field, $model['class']));
+                }
+
+                $activeQuery = ($searchModel instanceof CustomSearchInterface)
+                    ? $searchModel->getQuery($activeQuery, $field, $query)
+                    : $activeQuery->orWhere(['like', $field, $query]);
+            }
+            $this->addToResult($activeQuery->all());
         }
         return $this->result;
     }

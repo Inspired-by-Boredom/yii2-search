@@ -10,19 +10,19 @@ namespace vintage\search\tests\fixtures;
 use yii\test\ActiveFixture;
 
 /**
- * Fixture for Article model.
+ * Fixture for HomeStaticPage model.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
- * @since 1.0
+ * @since 1.1
  */
-class ArticleFixture extends ActiveFixture
+class HomeStaticPageFixture extends ActiveFixture
 {
     /**
      * @inheritdoc
      */
-    public $modelClass = 'vintage\search\tests\models\Article';
+    public $modelClass = 'vintage\search\tests\models\HomeStaticPage';
     /**
      * @inheritdoc
      */
-    public $dataFile = '@data/article.php';
+    public $dataFile = '@data/home-static-page.php';
 }

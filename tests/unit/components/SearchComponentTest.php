@@ -8,9 +8,12 @@
 namespace vintage\search\tests\unit\components;
 
 use Yii;
+use vintage\search\data\SearchResult;
 use vintage\search\tests\unit\DbTestCase;
 use vintage\search\tests\fixtures\ArticleFixture;
-use vintage\search\data\SearchResult;
+use vintage\search\tests\fixtures\HomeStaticPageFixture;
+use vintage\search\tests\models\Article;
+use vintage\search\tests\models\HomeStaticPage;
 
 /**
  * Test case for Search component.
@@ -32,19 +35,21 @@ class SearchComponentTest extends DbTestCase
     public function fixtures()
     {
         return [
-            'article' => [
-                'class' => ArticleFixture::className()
-            ]
+            'article' => ArticleFixture::className(),
+            'homeStaticPage' => HomeStaticPageFixture::className(),
         ];
     }
 
+    /**
+     * @inheritdoc
+     */
     public function _before()
     {
         parent::_before();
         $this->component = Yii::$app->get('searcher');
     }
 
-    public function testSearch()
+    public function testSearchDefault()
     {
         $query = 'Test article #1';
 
@@ -56,8 +61,24 @@ class SearchComponentTest extends DbTestCase
 
         $this->assertEquals($expected, $actual, 'Method must find string in database');
 
-        $this->assertEquals('vintage\search\tests\models\Article', $result[0]->modelName, 'Result should contain a model name');
-        $this->assertEquals(1, $result[0]->modelId, 'Result should containt a primary key of model');
+        $this->assertEquals(Article::className(), $result[0]->modelName, 'Result should contain a model name');
+        $this->assertEquals(1, $result[0]->modelId, 'Result should contain a primary key of model');
+    }
+
+    public function testSearchCustom()
+    {
+        $query = 'page';
+
+        /* @var SearchResult[] $result */
+        $result = $this->component->search($query);
+
+        $expected = 'This is home page';
+        $actual = $result[0]->description;
+
+        $this->assertEquals($expected, $actual, 'Method must find string in database');
+
+        $this->assertEquals(HomeStaticPage::className(), $result[0]->modelName, 'Result should contain a model name');
+        $this->assertEquals(3, $result[0]->modelId, 'Result should contain a primary key of model');
     }
 
     public function testGetModelLabel()
