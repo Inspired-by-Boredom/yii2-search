@@ -9,12 +9,12 @@ namespace vintage\search;
 
 use Yii;
 use yii\base\Component;
-use yii\base\Exception;
 use yii\base\InvalidConfigException;
+use yii\base\Model;;
 use yii\db\ActiveRecordInterface;
+use yii\helpers\ArrayHelper;
 use vintage\search\data\SearchResult;
 use vintage\search\interfaces\SearchInterface;
-use yii\helpers\ArrayHelper;
 
 /**
  * Component for search in Active Record models.
@@ -63,35 +63,33 @@ class SearchComponent extends Component
      *
      * @param string $query Keywords for search.
      * @return SearchResult[] Array of the result objects.
-     * @throws Exception
+     * @throws \Exception
      * @throws InvalidConfigException
      */
     public function search($query) {
         foreach($this->models as $model) {
-            /* @var ActiveRecordInterface|SearchInterface $ar */
-            $ar = Yii::createObject($model['class']);
+            /* @var ActiveRecordInterface|SearchInterface|Model $searchModel */
+            $searchModel = Yii::createObject($model['class']);
 
-            if($ar instanceof SearchInterface && $ar instanceof ActiveRecordInterface) {
-                $searchFields = $ar->getSearchFields();
-                $dbQuery = $ar::find();
+            if($this->isSearchModel($searchModel)) {
+                $activeQuery = $searchModel::find();
 
-                foreach($searchFields as $field) {
-                    if($ar->hasAttribute($field)) {
-                        $dbQuery->orWhere(['like', $field, $query]);
+                foreach($searchModel->getSearchFields() as $field) {
+                    if($searchModel->hasAttribute($field)) {
+                        $activeQuery->orWhere(['like', $field, $query]);
                     } else {
-                        $message = sprintf("Field `%s` not found in `%s` model", $field, $ar);
-                        throw new Exception($message);
+                        throw new \Exception(sprintf("Field `%s` not found in `%s` model", $field, $model['class']));
                     }
                 }
 
-                $modelObjects = $dbQuery->all();
-                if($modelObjects !== null) {
-                    $this->_currentModel = $ar;
-                    $this->addToResult($modelObjects);
+                $foundModels = $activeQuery->all();
+                if($foundModels !== null) {
+                    $this->_currentModel = $searchModel;
+                    $this->addToResult($foundModels);
                 }
             } else {
                 throw new InvalidConfigException(
-                    "$ar should be instance of `vintage\\search\\interfaces\\SearchInterface` and `yii\\db\\ActiveRecordInterface`"
+                    $model['class'] . 'should be instance of `\vintage\search\interfaces\SearchInterface` and `\yii\db\ActiveRecordInterface`'
                 );
             }
         }
@@ -118,10 +116,24 @@ class SearchComponent extends Component
     /**
      * Method for adding iteration result to final result.
      *
-     * @param \yii\db\ActiveRecord[] $modelObjects
+     * @param \yii\db\ActiveRecord[] $foundModels
      */
-    protected function addToResult($modelObjects) {
-        $tmp = SearchResult::buildMultiply($modelObjects);
+    protected function addToResult($foundModels)
+    {
+        $tmp = SearchResult::buildMultiply($foundModels);
         $this->_result = ArrayHelper::merge($tmp, $this->_result);
+    }
+
+    /**
+     * Check whether given model is search model.
+     *
+     * @param Model $model
+     * @return bool `true` if given model is search model.
+     * @since 1.1
+     */
+    protected function isSearchModel(Model $model)
+    {
+        return $model instanceof ActiveRecordInterface
+            && $model instanceof SearchInterface;
     }
 }

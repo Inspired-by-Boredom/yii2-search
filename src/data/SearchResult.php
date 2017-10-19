@@ -8,8 +8,6 @@
 namespace vintage\search\data;
 
 use yii\base\Object;
-use yii\db\BaseActiveRecord;
-use vintage\search\interfaces\SearchInterface;
 
 /**
  * Model for store of search result.
@@ -48,7 +46,7 @@ class SearchResult extends Object
     /**
      * Building the result from Active Record object.
      *
-     * @param BaseActiveRecord|SearchInterface $modelObject
+     * @param \yii\db\BaseActiveRecord|\vintage\search\interfaces\SearchInterface $modelObject
      * @return SearchResult
      */
     public static function build($modelObject)
@@ -65,22 +63,15 @@ class SearchResult extends Object
     /**
      * Multiply building of result from Active Record objects.
      *
-     * @param BaseActiveRecord[]|SearchInterface[] $modelObjects
+     * @param \yii\db\BaseActiveRecord[]|\vintage\search\interfaces\SearchInterface[] $modelObjects
      * @return SearchResult[]
      */
     public static function buildMultiply($modelObjects)
     {
         $results = [];
         foreach ($modelObjects as $object) {
-            $results[] = new self([
-                'modelId'       => $object->getPrimaryKey(),
-                'modelName'     => $object::className(),
-                'title'         => $object->getSearchTitle(),
-                'description'   => $object->getSearchDescription(),
-                'url'           => $object->getSearchUrl()
-            ]);
+            $results[] = self::build($object);
         }
-
         return $results;
     }
 
@@ -96,7 +87,6 @@ class SearchResult extends Object
         foreach($searchResults as $obj) {
             $sorted[$obj->modelName][] = $obj;
         }
-
         return $sorted;
     }
 }
