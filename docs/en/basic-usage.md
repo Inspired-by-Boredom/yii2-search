@@ -25,8 +25,8 @@ Add component to your application config
       ],
 ]
 ```
-to the `models` option you should to add array with configuration of model where you need a search.
-That classes should implements a `\vintage\search\interfaces\SearchInterface` interface
+to the `models` option you should add array with configuration of model where you need a search.
+These classes should implement a `\vintage\search\interfaces\SearchInterface` interface
 ```php
 /**
  * Article search model.
@@ -75,7 +75,7 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\S
 Usage
 -----
 
-Call method of search component with search query
+Call method of search component with a query
 ```php
 /* @var \vintage\search\data\SearchResult[] $result */
 $result = Yii::$app->get('searcher')->search('some key words');

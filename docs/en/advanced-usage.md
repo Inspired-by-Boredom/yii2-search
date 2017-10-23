@@ -4,7 +4,7 @@ Advanced usage
 Using custom query in model
 ---------------------------
 
-Instead `\vintage\search\interfaces\SearchInterface`
+Instead of `\vintage\search\interfaces\SearchInterface`
 you should implement `\vintage\search\interfaces\CustomSearchInterface` interface.
 ```php
 /**
@@ -59,5 +59,5 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\C
     }
 }
 ```
-it interface provides `getQuery()` method. It takes `ActiveQuery`, current search field and user search query.
-You can build custom query. Then you should return `ActiveQuery` object.
+this interface provides `getQuery()` method. It takes `ActiveQuery`, current search field and user query.
+You can build a custom query. Then you should return `ActiveQuery` object.
