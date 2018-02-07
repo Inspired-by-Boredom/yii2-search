@@ -1,11 +1,11 @@
-Advanced usage
-==============
+Custom search query in model
+============================
 
-Using custom query in model
----------------------------
+Use can create custom query for search in specific model.
 
-Instead of `\vintage\search\interfaces\SearchInterface`
-you should implement `\vintage\search\interfaces\CustomSearchInterface` interface.
+For it you should implement `\vintage\search\interfaces\CustomSearchInterface` interface
+instead of `\vintage\search\interfaces\SearchInterface`
+
 ```php
 /**
  * Home static page search model.
@@ -59,5 +59,9 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\C
     }
 }
 ```
-this interface provides `getQuery()` method. It takes `ActiveQuery`, current search field and user query.
-You can build a custom query. Then you should return `ActiveQuery` object.
+
+this interface provides `getQuery()` method.
+
+It takes as arguments `ActiveQuery`, current search field and user query. You can build a custom query.
+
+Then you should return `ActiveQuery` object.

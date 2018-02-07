@@ -1,32 +1,8 @@
 Basic usage
 ===========
-> If you want use all features - read a [advanced usage](advanced-usage.md) guide.
 
-Configuration
--------------
+Implement `\vintage\search\interfaces\SearchInterface` interface in Active Record models
 
-Add component to your application config
-```php
-'components' => [
-      // ...
-      'searcher' => [
-            'class' => \vintage\search\SearchComponent::class,
-            'models' => [
-                'article' => [
-                    'class' => \common\models\Article::class,
-                    'label' => 'Articles',
-                 ],
-                 'products' => [
-                    'class' => \common\models\Product::class,
-                    'label' => 'Shop products',
-                 ],
-                // ...
-            ],
-      ],
-]
-```
-to the `models` option you should add array with configuration of model where you need a search.
-These classes should implement a `\vintage\search\interfaces\SearchInterface` interface
 ```php
 /**
  * Article search model.
@@ -72,12 +48,11 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\S
 }
 ```
 
-Usage
------
-
 Call method of search component with a query
+
 ```php
 /* @var \vintage\search\data\SearchResult[] $result */
-$result = Yii::$app->get('searcher')->search('some key words');
+$result = Yii::$app->get('searcher')->search('some query here');
 ```
+
 this method returns array of `\vintage\search\data\SearchResult` objects.
