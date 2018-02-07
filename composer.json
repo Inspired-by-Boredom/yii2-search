@@ -22,7 +22,7 @@
     }
   ],
   "require": {
-    "yiisoft/yii2": "^2.0.0"
+    "yiisoft/yii2": "^2.0.13"
   },
   "require-dev": {
     "codeception/codeception": "~2.3",
@@ -31,17 +31,17 @@
   },
   "autoload": {
     "psr-4": {
-      "vintage\\search\\": "src"
+      "vintage\\search\\": "src/"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "vintage\\search\\tests\\": "tests"
+      "vintage\\search\\tests\\": "tests/"
     }
   },
   "extra": {
     "branch-alias": {
-      "dev-master": "1.1.x-dev"
+      "dev-master": "2.0.x-dev"
     }
   },
   "scripts": {
