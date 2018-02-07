@@ -7,7 +7,7 @@
 
 namespace vintage\search\data;
 
-use yii\base\Object;
+use yii\base\BaseObject;
 
 /**
  * Model for store of search result.
@@ -19,7 +19,7 @@ use yii\base\Object;
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
  */
-class SearchResult extends Object
+class SearchResult extends BaseObject
 {
     /**
      * @var string
