@@ -1,5 +1,6 @@
 <?php
-error_reporting(-1);
+
+error_reporting(E_ALL);
 
 defined('YII_DEBUG') or define('YII_DEBUG', true);
 defined('YII_ENABLE_ERROR_HANDLER') or define('YII_ENABLE_ERROR_HANDLER', false);

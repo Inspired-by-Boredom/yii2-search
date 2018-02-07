@@ -1,4 +1,5 @@
 <?php
+
 return [
     'db' => require(__DIR__ . '/db.php'),
 
@@ -7,7 +8,7 @@ return [
         'models' => [
             'article' => [
                 'class' => \vintage\search\tests\models\Article::className(),
-                'label' => 'Test label'
+                'label' => 'Test label',
             ],
             'homeStaticPage' => [
                 'class' => \vintage\search\tests\models\HomeStaticPage::className(),

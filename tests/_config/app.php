@@ -1,4 +1,5 @@
 <?php
+
 return [
     'id' => 'test-app',
     'class' => 'yii\console\Application',
@@ -9,5 +10,5 @@ return [
 
     'bootstrap' => [],
     'components' => require(__DIR__ . '/components.php'),
-    'params' => require(__DIR__ . '/params.php'),
+    'params' => [],
 ];
