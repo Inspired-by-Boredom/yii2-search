@@ -17,28 +17,32 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\S
     /**
      * @inheritdoc
      */
-    public function getSearchTitle() {
+    public function getSearchTitle()
+    {
         return $this->title;
     }
 
     /**
      * @inheritdoc
      */
-    public function getSearchDescription() {
+    public function getSearchDescription()
+    {
         return $this->short_description;
     }
 
     /**
      * @inheritdoc
      */
-    public function getSearchUrl() {
+    public function getSearchUrl()
+    {
        return Url::toRoute['/news/default/index', 'id' => $this->id];
     }
 
    /**
     * @inheritdoc
     */
-    public function getSearchFields() {
+    public function getSearchFields()
+    {
         return [
             'title',
             'short_description',
