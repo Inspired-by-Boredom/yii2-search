@@ -19,7 +19,6 @@ class DbTestCase extends TestCase
 {
     use FixtureTrait;
 
-
     public function _before()
     {
         $this->loadFixtures();

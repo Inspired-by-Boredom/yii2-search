@@ -20,9 +20,10 @@ interface CustomSearchInterface extends SearchInterface
     /**
      * In this method you should implement custom search query.
      *
-     * @param ActiveQueryInterface $query
-     * @param string $field Current search field.
-     * @param string $searchQuery Search query.
+     * @param ActiveQueryInterface  $query
+     * @param string                $field Current search field.
+     * @param string                $searchQuery Search query.
+     *
      * @return ActiveQueryInterface
      */
     public function getQuery(ActiveQueryInterface $query, $field, $searchQuery);

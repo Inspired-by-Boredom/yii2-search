@@ -65,7 +65,7 @@ class Article extends ActiveRecord implements SearchInterface
         return [
             'title',
             'shortText',
-            'fullText'
+            'fullText',
         ];
     }
 }

@@ -47,6 +47,7 @@ class SearchResult extends BaseObject
      * Building the result from Active Record object.
      *
      * @param \yii\db\BaseActiveRecord|\vintage\search\interfaces\SearchInterface $modelObject
+     *
      * @return SearchResult
      */
     public static function build($modelObject)
@@ -64,6 +65,7 @@ class SearchResult extends BaseObject
      * Multiply building of result from Active Record objects.
      *
      * @param \yii\db\BaseActiveRecord[]|\vintage\search\interfaces\SearchInterface[] $modelObjects
+     *
      * @return SearchResult[]
      */
     public static function buildMultiply($modelObjects)
@@ -79,6 +81,7 @@ class SearchResult extends BaseObject
      * Method for sorting results of search by model name.
      *
      * @param SearchResult[] $searchResults
+     *
      * @return SearchResult[]
      */
     public static function sortByModel(array $searchResults)

@@ -8,10 +8,11 @@
 namespace vintage\search\interfaces;
 
 /**
- * Interface for building the search result
+ * Interface for building the search result.
+ *
  * @see \vintage\search\data\SearchResult
  *
- * You should implement this interface in your Active Record model
+ * You should implement this interface in your Active Record model.
  *
  * @author Vladimir Kuprienko <vldmr.kuprienko@gmail.com>
  * @since 1.0
@@ -19,32 +20,32 @@ namespace vintage\search\interfaces;
 interface SearchInterface
 {
     /**
-     * Getting title
+     * Gets title.
      *
      * @return string This string will be inserted to the search result
-     * to `title` field
+     * to `title` field.
      */
     public function getSearchTitle();
 
     /**
-     * Getting description
+     * Gets description.
      *
      * @return string This string will be inserted to the search result
-     * to `description` field
+     * to `description` field.
      */
     public function getSearchDescription();
 
     /**
-     * Getting route
+     * Gets routes.
      *
      * @return string This string will be inserted to the search result
-     * to `url` field
+     * to `url` field.
      */
     public function getSearchUrl();
 
     /**
      * @return string[] Array of the field names
-     * where will be implemented search in model
+     * where will be implemented search in model.
      */
     public function getSearchFields();
 }

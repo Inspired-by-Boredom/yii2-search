@@ -28,6 +28,7 @@ class SearchComponent extends Component
 {
     /**
      * @var array Array with configuration of models for search.
+     *
      * @example
      * ```php
      * 'models' => [
@@ -60,7 +61,9 @@ class SearchComponent extends Component
      * ```
      *
      * @param string $query Keywords for search.
+     *
      * @return SearchResult[] Array of the result objects.
+     *
      * @throws \Exception
      * @throws InvalidConfigException
      */
@@ -77,6 +80,7 @@ class SearchComponent extends Component
             }
 
             $activeQuery = $searchModel::find();
+
             foreach ($searchModel->getSearchFields() as $field) {
                 if (!$searchModel->hasAttribute($field)) {
                     throw new \Exception(sprintf("Field `%s` not found in `%s` model", $field, $model['class']));
@@ -86,8 +90,10 @@ class SearchComponent extends Component
                     ? $searchModel->getQuery($activeQuery, $field, $query)
                     : $activeQuery->orWhere(['like', $field, $query]);
             }
+
             $this->addToResult($activeQuery->all());
         }
+
         return $this->result;
     }
 
@@ -95,6 +101,7 @@ class SearchComponent extends Component
      * Getting model label by model name.
      *
      * @param string $modelName
+     *
      * @return null|string
      */
     public function getModelLabel($modelName)
@@ -104,6 +111,7 @@ class SearchComponent extends Component
                 return isset($model['label']) ? $model['label'] : Inflector::camel2words($key);
             }
         }
+
         return null;
     }
 
@@ -114,7 +122,7 @@ class SearchComponent extends Component
      */
     protected function addToResult($foundModels)
     {
-        if ($foundModels !== null) {
+        if (null !== $foundModels) {
             $tmp = SearchResult::buildMultiply($foundModels);
             $this->result = ArrayHelper::merge($tmp, $this->result);
         }
@@ -124,12 +132,14 @@ class SearchComponent extends Component
      * Check whether given model is search model.
      *
      * @param Model $model
+     *
      * @return bool `true` if given model is search model.
+     *
      * @since 1.1
      */
     protected function isSearchModel(Model $model)
     {
-        return $model instanceof BaseActiveRecord
-            && $model instanceof SearchInterface;
+        return $model instanceof BaseActiveRecord &&
+            $model instanceof SearchInterface;
     }
 }
