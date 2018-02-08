@@ -18,7 +18,7 @@ use yii\base\Model;
 use yii\db\BaseActiveRecord;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Inflector;
-use vintage\search\data\SearchResult;
+use vintage\search\models\SearchResult;
 use vintage\search\interfaces\SearchInterface;
 use vintage\search\interfaces\CustomSearchInterface;
 

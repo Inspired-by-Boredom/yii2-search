@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace vintage\search\data;
+namespace vintage\search\models;
 
 use yii\base\BaseObject;
 
@@ -57,11 +57,11 @@ class SearchResult extends BaseObject
     public static function build($modelObject)
     {
         return new self([
-            'modelId'       => $modelObject->getPrimaryKey(),
-            'modelName'     => $modelObject::className(),
-            'title'         => $modelObject->getSearchTitle(),
-            'description'   => $modelObject->getSearchDescription(),
-            'url'           => $modelObject->getSearchUrl(),
+            'modelId' => $modelObject->getPrimaryKey(),
+            'modelName' => $modelObject::className(),
+            'title' => $modelObject->getSearchTitle(),
+            'description' => $modelObject->getSearchDescription(),
+            'url' => $modelObject->getSearchUrl(),
         ]);
     }
 
@@ -75,9 +75,11 @@ class SearchResult extends BaseObject
     public static function buildMultiply($modelObjects)
     {
         $results = [];
+
         foreach ($modelObjects as $object) {
-            $results[] = self::build($object);
+            $results[] = static::build($object);
         }
+
         return $results;
     }
 
@@ -91,9 +93,11 @@ class SearchResult extends BaseObject
     public static function sortByModel(array $searchResults)
     {
         $sorted = [];
+
         foreach ($searchResults as $obj) {
             $sorted[$obj->modelName][] = $obj;
         }
+
         return $sorted;
     }
 }

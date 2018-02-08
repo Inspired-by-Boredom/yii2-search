@@ -97,7 +97,7 @@ Call method of search component with a query
 $result = Yii::$app->get('searcher')->search('some query here');
 ```
 
-this method returns array of `\vintage\search\data\SearchResult` objects.
+this method returns array of `\vintage\search\models\SearchResult` objects.
 
 Tests
 -----

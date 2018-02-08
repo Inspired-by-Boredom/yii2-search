@@ -3,6 +3,7 @@ Search Component Change Log
 
 2.0.0 Under development
 -----------------------
+* Enh: Some improvements in SearchResult model (greeflas)
 * Chg #1: Changed minimum Yii version from `^2.0.0` to `^2.0.13` (greeflas, CodeIgniter00)
 * Chg: Removed unused dev packages `codeception/verify` and `codeception/specify` (greeflas)
 * Chg: Updated code style

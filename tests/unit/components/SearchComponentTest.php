@@ -12,7 +12,7 @@
 namespace vintage\search\tests\unit\components;
 
 use Yii;
-use vintage\search\data\SearchResult;
+use vintage\search\models\SearchResult;
 use vintage\search\tests\unit\DbTestCase;
 use vintage\search\tests\fixtures\ArticleFixture;
 use vintage\search\tests\fixtures\HomeStaticPageFixture;

@@ -14,7 +14,7 @@ namespace vintage\search\interfaces;
 /**
  * Interface for building the search result.
  *
- * @see \vintage\search\data\SearchResult
+ * @see \vintage\search\models\SearchResult
  *
  * You should implement this interface in your Active Record model.
  *

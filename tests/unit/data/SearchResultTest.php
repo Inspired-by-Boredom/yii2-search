@@ -13,7 +13,7 @@ namespace vintage\search\tests\unit\data;
 
 use vintage\search\tests\models\Article;
 use vintage\search\tests\unit\TestCase;
-use vintage\search\data\SearchResult;
+use vintage\search\models\SearchResult;
 
 /**
  * Test case for SearchResult class.
