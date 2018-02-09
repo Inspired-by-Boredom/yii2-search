@@ -1,7 +1,7 @@
 Search Component Change Log
 ---------------------------
 
-2.0.0 Under development
+2.0.0 February 10, 2018
 -----------------------
 * Enh: Some improvements in SearchResult model (greeflas)
 * Chg #1: Changed minimum Yii version from `^2.0.0` to `^2.0.13` (greeflas, CodeIgniter00)

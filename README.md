@@ -31,7 +31,7 @@ $ composer require vintage/yii2-search
 or add
 
 ```
-"vintage/yii2-search": "~1.0"
+"vintage/yii2-search": "~2.0"
 ```
 
 to the `require` section of your `composer.json`.
