@@ -44,4 +44,4 @@ Add component to your application config
 ```
 
 to the `models` option you should add array with configuration of model where you need a search.
-These classes should implement a `\vintage\search\interfaces\SearchInterface` interface.
+These models must implements a `\vintage\search\interfaces\SearchInterface` interface.

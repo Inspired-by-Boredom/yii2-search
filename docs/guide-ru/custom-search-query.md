@@ -1,10 +1,10 @@
-Custom search query in model
-============================
+Кастомный запрос поиска для модели
+==================================
 
-You can create custom query for search in specific model.
+Вы можете создать кастомный запрос для поиска в разных моделях.
 
-For it you should implement `\vintage\search\interfaces\CustomSearchInterface` interface
-instead of `\vintage\search\interfaces\SearchInterface`
+Для этого нужно реализовать интерфейс `\vintage\search\interfaces\CustomSearchInterface` вместо
+ `\vintage\search\interfaces\SearchInterface`
 
 ```php
 /**
@@ -64,8 +64,8 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\C
 }
 ```
 
-this interface provides `getQuery()` method.
+данный интерфейс предоставляет метод `getQuery()`.
 
-It takes as arguments `ActiveQuery` object, current search field and search query string. You can build a custom query.
+Он получает в качестве аргументов объект `ActiveQuery`, имя текучего поля для поиска и строку запроса.
 
-In method implementation you should return a `ActiveQuery` object.
+В реализации метода вы должны вернуть объект `ActiveQuery`.
