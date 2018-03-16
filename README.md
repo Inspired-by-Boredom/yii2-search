@@ -94,7 +94,7 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\S
 Call method of search component with a query
 
 ```php
-/* @var \vintage\search\data\SearchResult[] $result */
+/* @var \vintage\search\models\SearchResult[] $result */
 $result = Yii::$app->get('searcher')->search('some query here');
 ```
 
