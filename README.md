@@ -74,7 +74,7 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\S
      */
     public function getSearchUrl()
     {
-       return Url::toRoute['/news/default/index', 'id' => $this->id];
+       return Url::toRoute(['/news/default/index', 'id' => $this->id]);
     }
 
    /**
