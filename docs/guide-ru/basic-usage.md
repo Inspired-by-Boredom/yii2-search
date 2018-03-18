@@ -35,7 +35,7 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\S
      */
     public function getSearchUrl()
     {
-       return Url::toRoute['/news/default/index', 'id' => $this->id];
+       return Url::toRoute(['/news/default/index', 'id' => $this->id]);
     }
 
    /**
@@ -55,7 +55,7 @@ class ArticleSearch extends ActiveRecord implements \vintage\search\interfaces\S
 Вызовите метод компонента для поиска с запросом
 
 ```php
-/* @var \vintage\search\data\SearchResult[] $result */
+/* @var \vintage\search\models\SearchResult[] $result */
 $result = Yii::$app->get('searcher')->search('запрос тут');
 ```
 
